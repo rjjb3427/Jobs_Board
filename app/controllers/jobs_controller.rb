@@ -29,7 +29,11 @@ class JobsController < ApplicationController
 	end
 	
 	def update
-		#code here
+		if @job.update(jobs_params)#code here
+			redirect_to @job
+		else
+			render "Edit"
+		end 
 	end
 	
 	def destroy
