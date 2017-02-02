@@ -3,7 +3,7 @@ class JobsController < ApplicationController
 	before_action :find_job, only: [:show, :edit, :update, :destroy] #this action will run our find_jobs private method on the controllers show, edit, update, and destroy method 
 		
 	def index
-		#code here
+		@jobs = Job.all.order("created_at DESC")#code here// this code displays the jobs in desending order
 	end
 	
 	def show
@@ -42,7 +42,7 @@ class JobsController < ApplicationController
 		params.require(:job).permit(:title, :description, :company, :url)#code here
 	end
 	
-	def find_jobs
+	def find_job
 		@job = Job.find(params[:id])#code here// This is here because we're going to reuse this in the show, edit, update, and destroy methods. 
 	end
 	
