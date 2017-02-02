@@ -37,7 +37,8 @@ class JobsController < ApplicationController
 	end
 	
 	def destroy
-		#code here
+		@job.destroy#code here
+		redirect_to root_path
 	end
 	
 	private # My private methods go down down below ho ho!
