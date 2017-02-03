@@ -3,7 +3,12 @@ class JobsController < ApplicationController
 	before_action :find_job, only: [:show, :edit, :update, :destroy] #this action will run our find_jobs private method on the controllers show, edit, update, and destroy method 
 		
 	def index
-		@jobs = Job.all.order("created_at DESC")#code here// this code displays the jobs in desending order
+		if params[:category].blank?
+			@jobs = Job.all.order("created_at DESC")#code here// this code displays the jobs in desending order
+		else
+			@category_id = Category.find_by(name: params[:category]).id
+			@jobs = Job.where(category_id: @category_id).order("created_at DESC")
+		end
 	end
 	
 	def show
@@ -44,7 +49,7 @@ class JobsController < ApplicationController
 	private # My private methods go down down below ho ho!
 	
 	def jobs_params
-		params.require(:job).permit(:title, :description, :company, :url)#code here
+		params.require(:job).permit(:title, :description, :company, :url, :category_id)#code here //These inputs get saved to the database
 	end
 	
 	def find_job
