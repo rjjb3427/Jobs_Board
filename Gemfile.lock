@@ -39,9 +39,9 @@ GEM
     arel (6.0.4)
     autoprefixer-rails (6.7.2)
       execjs
-    bootstrap (4.0.0.alpha6)
-      autoprefixer-rails (>= 6.0.3)
-      sass (>= 3.4.19)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.3)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -143,13 +143,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap
+  bootstrap-sass (~> 3.3.6)
   coffee-rails (~> 4.1.0)
   haml (~> 4.0, >= 4.0.7)
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.5)
-  sass-rails
+  sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
   simple_form (~> 3.3, >= 3.3.1)
   sqlite3
