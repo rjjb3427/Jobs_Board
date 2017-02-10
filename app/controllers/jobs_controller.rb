@@ -1,7 +1,10 @@
 class JobsController < ApplicationController
-	
+
+	before_action :authenicate_user!,  except: [:index, :show]
 	before_action :find_job, only: [:show, :edit, :update, :destroy] #this action will run our find_jobs private method on the controllers show, edit, update, and destroy method 
-		
+
+
+
 	def index
 		if params[:category].blank?
 			@jobs = Job.all.order("created_at DESC")#code here// this code displays the jobs in desending order
